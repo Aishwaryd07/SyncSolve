@@ -41,6 +41,7 @@ const secretKey = auth_config.secretKey;
 /* stitch routes to the server */
 require("./routes/auth.routes")(app);
 require("./routes/room.routes")(app);
+require("./routes/question.routes")(app);
 
 
 app.listen(PORT, () => {
