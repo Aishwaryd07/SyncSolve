@@ -43,7 +43,8 @@ function App() {
   const handleLogout = () => {
     localStorage.clear();
     setIsAuthenticated(false);
-    navigate({ pathname: '/', state: { isAuthenticated: isAuthenticated } });    
+    navigate({ pathname: '/', state: { isAuthenticated: isAuthenticated } });  
+    window.location.reload();  
   };
 
   
