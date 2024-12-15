@@ -89,7 +89,12 @@ const Navbar = ({isLoading , handleLogout, userData, handleLogin, isAuthenticate
                 >{title}</NavLink>
               </li>
             ))}
-            <li className='text-white'><Link to="/login" >Login</Link></li>
+            {/*<li className='text-white'><Link to="/login" >Login</Link></li>*/}
+            {!isAuthenticated && (
+              <li className="text-white">
+                <button onClick={openLoginPopup}>Login</button>
+              </li>
+            )}
           </ul>
         </div>
     </header>
