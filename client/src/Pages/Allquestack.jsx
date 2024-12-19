@@ -53,6 +53,7 @@ const Allquestack = () => {
                   </li>
                 ))}
               </ul>
+              {(!questionData.imageSolution) ? <></> :
               <div className="mt-6 flex justify-end">
                 <button
                   className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
@@ -68,6 +69,7 @@ const Allquestack = () => {
                   View Solution PDF
                 </button>
               </div>
+              }
             </div>
           ))}
         </div>
