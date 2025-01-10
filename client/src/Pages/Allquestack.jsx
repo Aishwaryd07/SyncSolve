@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ChatRoom from '../components/ChatRoom';
 
 const backendURL = 'https://coalesce-backend-5uxc.onrender.com';
 
@@ -74,6 +75,9 @@ const Allquestack = () => {
           ))}
         </div>
       )}
+
+      {/*chat */}
+      <ChatRoom />
     </div>
   );
 };

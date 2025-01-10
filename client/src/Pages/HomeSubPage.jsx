@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FiCalendar, FiEdit, FiSearch, FiPlus } from 'react-icons/fi'; // Import icons
 import 'tailwindcss/tailwind.css';
+import ChatRoom from '../components/ChatRoom';
 
 const HomeSubPage = () => {
   const { roomCode } = useParams();
@@ -52,6 +53,11 @@ const HomeSubPage = () => {
       <Link onClick={handleOpenCodeEditor} className="block mx-auto text-center mt-8 bg-blue hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
         Start Coding
       </Link>
+
+      {/* Chat Room Component */}
+      <div className="mt-8">
+        <ChatRoom />
+      </div>
 
       {/* Footer */}
       <footer className="mt-12 text-center py-8 bg-white">

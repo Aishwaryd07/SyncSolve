@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Outlet, useNavigate } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import './App.css';
+import ChatRoom from "./components/ChatRoom";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,7 +13,7 @@ function App() {
 
   React.useEffect(() => {
     if (token) {
-      fetch('https://coalesce-backend-5uxc.onrender.com', {
+      fetch('https://coalesce-backend-5uxc.onrender.com/', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -59,6 +60,7 @@ function App() {
     <Outlet />
     </>
   );
+  
 }
 
 export default App;

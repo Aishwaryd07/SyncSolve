@@ -32,8 +32,8 @@ exports.register =  async (req, res) => {
       const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-          user: "aishdandale7@gmail.com", // Your Gmail email address
-          pass: "ipyn qhkh cabr ovnx", // Your Gmail password or an application-specific password
+          user: auth_config.email, // Your Gmail email address
+          pass: auth_config.password, // Your Gmail password or an application-specific password
         },
       });
   
