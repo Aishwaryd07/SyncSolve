@@ -11,7 +11,8 @@ const ChatRoom = () => {
 
     useEffect(() => {
         // Initialize socket connection on component mount
-        socket = io('http://localhost:4000'); // Connect to your Socket.io server
+        //socket = io('http://localhost:4000'); // Connect to your Socket.io server
+        socket = io('https://coalesce-backend-5uxc.onrender.com');
 
         // Join the room when the component mounts
         socket.emit('joinRoom', { roomCode });
