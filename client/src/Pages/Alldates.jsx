@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const backendURL = 'https://coalesce-backend-5uxc.onrender.com';
+const backendURL = process.env.REACT_APP_BACKEND_URL_production;
+
+
+// component to display all dates where question was posted so user can browse question by date
+
 
 const Alldates = () => {
   const [dates, setDates] = useState([]);

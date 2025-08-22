@@ -47,7 +47,7 @@ const Signup = () => {
 
     try {
       // Assuming your backend endpoint for OTP verification is /verifyOtp
-      const response = await axios.post('https://coalesce-backend-5uxc.onrender.com/verify-otp', {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL_production}/verify-otp`, {
         email,
         otp,
       });

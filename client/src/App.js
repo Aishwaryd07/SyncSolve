@@ -13,7 +13,7 @@ function App() {
 
   React.useEffect(() => {
     if (token) {
-      fetch('https://coalesce-backend-5uxc.onrender.com/', {
+      fetch(`${process.env.REACT_APP_BACKEND_URL_production}`, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,

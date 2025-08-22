@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
-import { useParams } from 'react-router-dom'; // To get roomCode from the URL
+import { useParams } from 'react-router-dom'; 
 
 let socket;
 

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-const backendURL = 'https://coalesce-backend-5uxc.onrender.com';
+const backendURL = process.env.REACT_APP_BACKEND_URL_production;
+
+
+// component to dislplay names of users who posted questions
 
 const Admins = () => {
   const [friends, setFriends] = useState([]);

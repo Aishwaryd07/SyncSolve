@@ -37,7 +37,7 @@ exports.addQuestion = async (req, res) => {
   
       try {
         const newQuestion = new Question({
-          userId : user.userId,  //correction done here added userId and roomCode which was absent 
+          userId : user.userId,  
           roomCode : roomCode,
           question,
           options: options,

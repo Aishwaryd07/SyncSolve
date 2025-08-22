@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const backendURL = 'https://coalesce-backend-5uxc.onrender.com';
+const backendURL = process.env.REACT_APP_BACKEND_URL_production;
+
+
+//this is the component where dates are displyed for the uploaded question , one can then click on the date he wants the question from
+
 
 const Admindates = () => {
   const { userId, firstName, roomCode } = useParams();

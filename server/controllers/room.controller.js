@@ -34,31 +34,31 @@ exports.createRoom = async (req, res) => {
     }
 }
 
-exports.ifRoomExists = async (req, res) => {
-    try {
-      // Get the user ID from the authenticated request
-      const userId = req.user.userId;
+// exports.ifRoomExists = async (req, res) => {
+//     try {
+//       // Get the user ID from the authenticated request
+//       const userId = req.user.userId;
   
-      // Find the user document based on the user ID
-      const user = await User.findById(userId);
+//       // Find the user document based on the user ID
+//       const user = await User.findById(userId);
   
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
+//       if (!user) {
+//         return res.status(404).json({ message: 'User not found' });
+//       }
   
-      // Extract room codes and group names from the user document
-      const roomData = user.roomCodes.map(room => ({
-        roomCode: room.roomCode,
-        groupName: room.groupName
-      }));
+//       // Extract room codes and group names from the user document
+//       const roomData = user.roomCodes.map(room => ({
+//         roomCode: room.roomCode,
+//         groupName: room.groupName
+//       }));
   
-      // Send room codes and group names in the response
-      res.json({ roomData });
-    } catch (error) {
-      console.error('Error fetching room data:', error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
-}
+//       // Send room codes and group names in the response
+//       res.json({ roomData });
+//     } catch (error) {
+//       console.error('Error fetching room data:', error);
+//       res.status(500).json({ message: 'Internal server error' });
+//     }
+// }
 
 exports.ifRoomExists = async (req, res) => {
   const roomCode = req.params.roomCode;

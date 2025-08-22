@@ -4,6 +4,10 @@ import { FiCalendar, FiEdit, FiSearch, FiPlus } from 'react-icons/fi'; // Import
 import 'tailwindcss/tailwind.css';
 import ChatRoom from '../components/ChatRoom';
 
+// thsi is the page where we land when we enter a room. From one can decide the filter to search question like by date wise or user names
+// component where we are inside a room can see question posted by others using different options availabe see above from "like"
+
+
 const HomeSubPage = () => {
   const { roomCode } = useParams();
   const [funFact, setFunFact] = useState('');

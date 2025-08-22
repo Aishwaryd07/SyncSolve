@@ -15,7 +15,7 @@ const Login = ({ handleLogin, closeLoginPopup }) => {
     setLoading(true);
 
     try {
-      const response = await axios.post('https://coalesce-backend-5uxc.onrender.com/user/login', {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL_production}user/login`, {
         email,
         password,
       });

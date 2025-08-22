@@ -74,6 +74,7 @@ exports.verifyOtp = async (req, res) => {
     const isOtpValid = otp && user.otp === otp;
 
     if (!isOtpValid) {
+      //add logic to remove user from the database 
       return res.status(400).json({ message: "Invalid OTP" });
     }
 
