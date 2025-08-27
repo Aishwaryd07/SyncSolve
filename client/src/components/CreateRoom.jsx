@@ -17,7 +17,7 @@ const CreateRoom = () => {
       return;
     }
     try {
-        fetch(`https://coalesce-backend-5uxc.onrender.com/create-room`, {
+        fetch(`${process.env.REACT_APP_BACKEND_URL_production}/create-room`, {
           method: 'POST',
           body: JSON.stringify({ groupName }),
           headers: {

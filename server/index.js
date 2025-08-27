@@ -10,6 +10,8 @@ const db_config = require('./config/db.config')
 const auth_config = require('./config/auth.config')
 const authMW = require('./middleware/auth.mw')
 
+const Message = require('./models/message.model')
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -48,9 +50,13 @@ io.on('connection', (socket) => {
   console.log('A user connected');
 
   // Join a room
-  socket.on('joinRoom', ({ roomCode }) => {
+  socket.on('joinRoom', async ({ roomCode }) => {
     socket.join(roomCode);
     console.log(`User joined room: ${roomCode}`);
+
+    //send old messages 
+    const messages = await Message.find({roomCode}).sort({createdAt : 1}).lean();
+    socket.emit("previousMessages", messages);
   });
 
   // Leave a room
@@ -60,8 +66,11 @@ io.on('connection', (socket) => {
   });
 
   // Send and receive messages
-  socket.on('sendMessage', ({ roomCode, message}) => {
-    io.to(roomCode).emit('receiveMessage', message); // Broadcast message to the room
+  socket.on('sendMessage', async ({ roomCode, message, sender}) => {
+    //saving msg to db
+    const newMessage = new Message({roomCode, sender, message});
+    await newMessage.save();
+    io.to(roomCode).emit('receiveMessage', newMessage.toObject()); // Broadcast message to the room
   });
 
   socket.on('disconnect', () => {

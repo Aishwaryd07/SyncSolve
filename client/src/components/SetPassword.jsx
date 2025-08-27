@@ -38,7 +38,7 @@ const SetPassword = () => {
         const headers = {Authorization: `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json',}
       // Add your backend endpoint for handling password setup
-      const response = await axios.post('https://coalesce-backend-5uxc.onrender.com/set-password', {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL_production}/set-password`, {
         email,
         password,
       },{headers});

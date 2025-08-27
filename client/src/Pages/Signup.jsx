@@ -21,7 +21,7 @@ const Signup = () => {
 
     try {
       // backend endpoint for email verification is /register
-      const response = await axios.post('https://coalesce-backend-5uxc.onrender.com/register', {
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL_production}/register`, {
         email,
         firstName,
         lastName,

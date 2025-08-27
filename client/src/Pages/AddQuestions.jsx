@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const backendURL = 'https://coalesce-backend-5uxc.onrender.com';
+const backendURL = process.env.REACT_APP_BACKEND_URL_production;
 
 const AddQuestions = () => {
   const [question, setQuestion] = useState('');

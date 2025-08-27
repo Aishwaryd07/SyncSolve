@@ -8,14 +8,20 @@ const ChatRoom = () => {
     const { roomCode } = useParams(); // Get the roomCode from URL parameters
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState('');
+    const userData = {username : "Aishwary"}
 
     useEffect(() => {
         // Initialize socket connection on component mount
         //socket = io('http://localhost:4000'); // Connect to your Socket.io server
-        socket = io('https://coalesce-backend-5uxc.onrender.com');
+        socket = io(process.env.REACT_APP_BACKEND_URL_production);
 
         // Join the room when the component mounts
         socket.emit('joinRoom', { roomCode });
+
+        //load previous messages 
+        socket.on('previousMessages', (msgs) => {
+            setMessages(msgs);
+        })
 
         // Listen for incoming messages and add them to the state
         socket.on('receiveMessage', (newMessage) => {
@@ -31,7 +37,7 @@ const ChatRoom = () => {
 
     const sendMessage = () => {
         if (message.trim()) {
-            socket.emit('sendMessage', { roomCode, message }); // Emit the message to the server
+            socket.emit('sendMessage', { roomCode, message, sender : userData?.username || "Guest" }); // Emit the message to the server
             setMessage('');
         }
     };
@@ -41,7 +47,9 @@ const ChatRoom = () => {
             <h2>Chat Room: {roomCode}</h2>
             <div>
                 {messages.map((msg, index) => (
-                    <p key={index}>{msg}</p>
+                    <p key={index}>
+                        <b>{msg.sender}:</b> {msg.message}
+                    </p>
                 ))}
             </div>
             <input

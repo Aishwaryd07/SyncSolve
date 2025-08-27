@@ -11,7 +11,7 @@ const EnterRoom = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await fetch(`https://coalesce-backend-5uxc.onrender.com/get-rooms`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL_production}/get-rooms`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const EnterRoom = () => {
   const handleJoinRoom = async () => {
     const roomCode = inputRoomCode;
     try {
-      const response = await fetch(`https://coalesce-backend-5uxc.onrender.com/ifRoomExists/${roomCode}`,{
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL_production}/ifRoomExists/${roomCode}`,{
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         }

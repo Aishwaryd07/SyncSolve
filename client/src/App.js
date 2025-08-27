@@ -13,7 +13,7 @@ function App() {
 
   React.useEffect(() => {
     if (token) {
-      fetch(`${process.env.REACT_APP_BACKEND_URL_production}`, {
+      fetch(`${process.env.REACT_APP_BACKEND_URL_production}/user`, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
