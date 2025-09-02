@@ -27,13 +27,9 @@ const Router = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/set-password" element={<SetPassword/>} />
           <Route path="/create-room" element={<CreateRoom/>} />
-          <Route path='/enter-room/:roomCode' element={<HomeSubPage/>} >
-              <Route path="chat" element={<ChatRoom />} /> {/* ChatRoom added */}
-          </Route>
+          <Route path='/enter-room/:roomCode' element={<HomeSubPage/>} />
           <Route path='/add-question/:roomCode' element={<AddQuestions/>} />
-          <Route path="/browse-questions/:roomCode" element={<Alldates />} >
-              <Route path="chat" element={<ChatRoom />} /> {/* ChatRoom added */}
-          </Route>
+          <Route path="/browse-questions/:roomCode" element={<Alldates />} />
           <Route path="/Alldates/:date/:roomCode" element={<Allquestack />} />
           <Route path='/browse-questions/all-friends/:roomCode' element={<Admins/>} />
           <Route path="/friends/:roomCode/:userId?/:firstName?"element={<Admindates />}/>

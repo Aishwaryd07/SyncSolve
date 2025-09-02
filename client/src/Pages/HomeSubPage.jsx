@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FiCalendar, FiEdit, FiSearch, FiPlus } from 'react-icons/fi'; // Import icons
 import 'tailwindcss/tailwind.css';
-import ChatRoom from '../components/ChatRoom';
 
 // this is the page where we land when we enter a room. From one can decide the filter to search question like by date wise or user names
 // component where we are inside a room can see question posted by others using different options availabe see above from "like"
@@ -58,10 +57,6 @@ const HomeSubPage = () => {
         Start Coding
       </Link>
 
-      {/* Chat Room Component */}
-      <div className="mt-8">
-        <ChatRoom />
-      </div>
 
       {/* Footer */}
       <footer className="mt-12 text-center py-8 bg-white">

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import ChatRoom from '../components/ChatRoom';
 
 const backendURL = process.env.REACT_APP_BACKEND_URL_production;
 
@@ -75,9 +74,6 @@ const Allquestack = () => {
           ))}
         </div>
       )}
-
-      {/*chat */}
-      <ChatRoom />
     </div>
   );
 };
