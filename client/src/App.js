@@ -75,9 +75,8 @@ function App() {
         </button>
 
         {/* Chat window */}
-        {/*fixed bottom-16 right-5 w-96 h-96 bg-white border rounded-xl shadow-lg z-50 flex flex-col */}
         {chatOpen && (
-          <div className="fixed bottom-16 right-5 w-96 h-96 bg-white border rounded-xl shadow-lg z-50 flex flex-col">
+          <div className="fixed bottom-16 right-5 w-96 h-96 bg-amber-50 border rounded-xl shadow-lg z-50 flex flex-col">
             <div className="flex justify-between items-center p-2 border-b">
               <h3 className="font-bold">Chat</h3>
               <button onClick={()=> setChatOpen(false)}>❌</button>
