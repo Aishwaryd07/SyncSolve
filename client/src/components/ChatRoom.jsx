@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom'; 
 
 let socket;
 
-const ChatRoom = () => {
+const ChatRoom = ({userData}) => {
     const { roomCode } = useParams(); // Get the roomCode from URL parameters
     const [messages, setMessages] = useState([]);
     const [message, setMessage] = useState('');
-    const userData = {username : "Aishwary"}
+    console.log("userData : ");
+    console.log(userData);
+    
 
     useEffect(() => {
         // Initialize socket connection on component mount
@@ -37,7 +39,7 @@ const ChatRoom = () => {
 
     const sendMessage = () => {
         if (message.trim()) {
-            socket.emit('sendMessage', { roomCode, message, sender : userData?.username || "Guest" }); // Emit the message to the server
+            socket.emit('sendMessage', { roomCode, message, sender : userData?.user.firstName || "Guest" }); // Emit the message to the server
             setMessage('');
         }
     };
