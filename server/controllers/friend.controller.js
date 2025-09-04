@@ -16,8 +16,8 @@ exports.getAllFriends = async (req, res) => {
 exports.getFriendDates = async (req, res) => {
     const { roomCode } = req.params;
     let {userId} = req.query;
-    console.log(roomCode);
-    console.log(userId);
+    // console.log(roomCode);
+    // console.log(userId);
   
     if( !userId ) {
       userId = req.user.userId;

@@ -9,8 +9,6 @@ const backendURL = process.env.REACT_APP_BACKEND_URL_production;
 
 const Admindates = () => {
   const { userId, firstName, roomCode } = useParams();
-  console.log(userId + " userID")
-  console.log(roomCode)
   const [dates, setDates] = useState([]);
 
   let url = `${backendURL}/friends/getDates/${roomCode}`;

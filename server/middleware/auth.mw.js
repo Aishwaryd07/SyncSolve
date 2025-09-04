@@ -13,7 +13,8 @@ const authenticateUserJwt = (req, res, next) => {
           return res.sendStatus(403);
         }
         req.user = user;
-        console.log(user);
+        // console.log(`User set in auth middleware :`);
+        // console.log(req.user)
         next();
       });
     } else {

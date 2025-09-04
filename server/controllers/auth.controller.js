@@ -8,7 +8,7 @@ const secretKey = auth_config.secretKey;
 
 exports.register =  async (req, res) => {
     try {
-      console.log(req.body);
+      //console.log(req.body);
       const { email,firstName } = req.body;
   
       // Check if the user already exists
@@ -137,7 +137,9 @@ exports.setPassword = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   try {
-    const user = await User.findOne({ username: req.user.email });
+    // console.log(`user received in auth controller :`);
+    // console.log(req.user);
+    const user = await User.findOne({ _id : req.user.userId });
     user.password = "";
     res.json({ user });
   } catch (error) {
