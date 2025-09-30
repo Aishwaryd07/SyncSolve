@@ -103,7 +103,7 @@ exports.signIn = async (req, res) => {
         expiresIn: "1d",
       });
       console.log('logged in successfully');
-      res.json({ message: 'Logged in successfully', token });
+      res.json({ message: 'Logged in successfully', token, user });
     } else {
       res.status(403).json({ message: 'Invalid username or password' });
     }

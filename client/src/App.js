@@ -15,7 +15,6 @@ function App() {
   const { roomCode } = useParams();
   const location = useLocation();
   const showChat = roomCode || location.pathname.includes("/room/");
-  // console.log(showChat)
 
   React.useEffect(() => {
     if (token) {
@@ -62,7 +61,7 @@ function App() {
 
   return (
     <>
-    <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} userData={userData} isLoading={isLoading} handleLogin={handleLogin}/>
+    <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} userData={userData} isLoading={isLoading} handleLogin={handleLogin} setUserData={setUserData} />
     <Outlet />
     {showChat && (
       <>

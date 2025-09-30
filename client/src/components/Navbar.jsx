@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {FaBarsStaggered, FaXmark} from 'react-icons/fa6'
 import Login from '../Pages/Login';
 
-const Navbar = ({isLoading , handleLogout, userData, handleLogin, isAuthenticated}) => {
+const Navbar = ({isLoading , handleLogout, userData, handleLogin, isAuthenticated, setUserData}) => {
     const[isMenuOpen, setIsMenuOpen] = useState(false);
     const [showLoginPopup, setShowLoginPopup] = useState(false);
     const handleMenuToggler = () =>{
@@ -28,7 +28,7 @@ const Navbar = ({isLoading , handleLogout, userData, handleLogin, isAuthenticate
   const LoginPopup = ({ handleLogout }) => (
     <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-md">
-        <Login handleLogin={handleLogin} closeLoginPopup={closeLoginPopup} />
+        <Login handleLogin={handleLogin} closeLoginPopup={closeLoginPopup} setUserData={setUserData} />
       </div>
     </div>
   );

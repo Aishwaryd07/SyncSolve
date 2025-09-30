@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ handleLogin, closeLoginPopup }) => {
+const Login = ({ handleLogin, closeLoginPopup, setUserData }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,6 +19,15 @@ const Login = ({ handleLogin, closeLoginPopup }) => {
         email,
         password,
       });
+      
+      const userData = {
+        user: {
+          ...response.data.user,
+          password: '' 
+        }
+      }
+
+      setUserData(userData);
 
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
