@@ -6,7 +6,6 @@ const http = require('http')
 const { Server } = require('socket.io')
 require("dotenv").config();
  
-const db_config = require('./config/db.config')
 const auth_config = require('./config/auth.config')
 const authMW = require('./middleware/auth.mw')
 
@@ -30,7 +29,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // Connect to MongoDB
-mongoose.connect(db_config.DB_url);
+mongoose.connect(process.env.DB_URL);
 
 const db = mongoose.connection
 
